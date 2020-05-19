@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from user import apis as user_api
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('api/user/vcode/submit/phone',user_api.submit_phone),
+    path('api/user/submit/vcode/',user_api.submin_vcode),
+    path('api/user/get_profile/',user_api.get_profile),
+    path('api/user/modify_profile',user_api.edit_profile),
+    path('api/user/upload/avatar',user_api.upload_avatar)
 ]
