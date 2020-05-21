@@ -7,7 +7,7 @@ from django.core.cache import cache
 from libs.http import render_json
 from common import errors
 from libs.qiniuyun_ import storage_img
-from libs.sms import SMS
+from libs import sms
 
 from common import keys
 from user.models import User,Profile
@@ -20,18 +20,19 @@ def submit_phone(request):
 
     phone=request.POST.get('phone')
     result=re.match(r'^1[33456789]\d{9}',phone)
+    print(phone)
     if not result:
-        return render_json(code=errors.PHONE_ERROR,data='手机格式错误')
+        print('*****')
+        return errors.PHONEERROR
 
     # if __name__ == '__main':
-    sms=SMS(signName='类聚识物',templateCode='SMS_189836899')
+    # sms=SMS(signName='类聚识物',templateCode='SMS_189836899')
     res=sms.send_sms.delay(phone)
-
+    print(res)
     if res:
         return render_json()
 
-    else:
-        return render_json(code=errors.SEND_VCODE_ERROR,data='手机验证码发送失败')
+
 
 
 
