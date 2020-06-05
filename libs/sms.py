@@ -15,8 +15,8 @@ from common import errors
 
 
 
-ACCESS_KEY_ID = 'LTAI4GCjVxuFenXezkuuHMR2'
-ACCESS_KEY_SECRET = 'Hg0LB004d44fskCPw0fr540u1rhJcg'
+ACCESS_KEY_ID = ''
+ACCESS_KEY_SECRET = ''
 
 client = AcsClient(ACCESS_KEY_ID,ACCESS_KEY_SECRET, 'cn-hangzhou')
 
